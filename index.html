@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Enter Title of App Here</title>
+</head>  
+<body>
+  <div id="root"></div>
+  <div id="round2"></div>
+  <div id="clock"></div>
+  <div id="more"></div>
+  <div id="componentPractice"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react-dom.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.21.1/babel.min.js"></script>
+  
+  <script type="text/babel">
+
+  // Rendering using Bable Example
+  class Greeting extends React.Component {
+    render() {
+      return (<h1>Blank HTML6 File which is React Ready</h1>);
+    }
+  }
+
+  ReactDOM.render(
+    <Greeting />,
+    document.getElementById('root'),
+  );
+
+  // Rendering using first tutorial from Reactjs.org
+  const element = <h2>React is strange....</h2>;
+  ReactDOM.render(
+    element, 
+    document.getElementById('round2')
+  )
+  
+  // Clock with React
+  function tick() {
+    const element = (
+      <div>
+        <p>Clock Time</p>
+        <h2>It is {new Date().toLocaleTimeString()}.</h2>
+      </div>
+    );
+    
+    ReactDOM.render(element, document.getElementById('clock'))
+  }
+  
+  setInterval(tick, 1000);
+  
+  
+  // More strange rendering practice... This is about components
+  function Welcome(props) {
+    return <blockquote>Hi, {props.name}</blockquote>;
+  }
+  
+  const element2 = <Welcome name="Sara" />;
+  
+  ReactDOM.render(
+    element2,
+    document.getElementById("more")
+  );
+  
+  function App() {
+    return (
+      <div>
+        <Welcome name="Sara" />
+        <Welcome name="Cahal" />
+        <Welcome name="Edite" />
+      </div>
+    );
+  }
+  
+  ReactDOM.render(
+    <App />,
+    document.getElementById("componentPractice")
+  );
+  
+  </script>
+</body>
+</html>
